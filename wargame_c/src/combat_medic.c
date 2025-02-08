@@ -2,8 +2,11 @@
 
 void combat_medic_heal(Unit *self, Unit *target)
 {
-    if (unit_get_health(target) < 0)
+    // Checks if the target is still alive (health > 0)
+    if (unit_get_health(target) <= 0)
     {
+        // Printing that he is gone if health <= 0. *We added "=" to make sure we test if he is dead
+        // If he is dead he won't be able to "resurrect" him:
         printf("He is gone...");
     }
     else
